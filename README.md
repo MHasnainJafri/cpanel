@@ -17,7 +17,6 @@ To use this library in your Laravel project, you can install it via Composer. Ru
 composer require mhasnainjafri/cpanel
 
 ```
-
 ### Usage
 
 To get started, you need to create a new instance of the Cpanel class. There are two ways to initialize the class:
