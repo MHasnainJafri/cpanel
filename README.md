@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/blob/master/LICENSE)
-[![Latest Release](https://img.shields.io/github/release/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/releases)
+<!-- [![Latest Release](https://img.shields.io/github/release/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/releases) -->
 [![Open Issues](https://img.shields.io/github/issues/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/issues)
 [![Stars](https://img.shields.io/github/stars/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/stargazers)
 [![Forks](https://img.shields.io/github/forks/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/network/members)
