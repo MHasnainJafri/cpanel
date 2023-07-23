@@ -1,10 +1,22 @@
 {
     "name": "mhasnainjafri/cpanel",
-    "description": "Cpanel functionalities",
+    "description": "Laravel CPanel API Library for Managing cPanel Functionalities",
     "keywords": [
-        "hasnain",
-        "cpanel"
-    ],
+        "cpanel",
+        "cpanel-api",
+        "cpanel-library",
+        "cpanel-management",
+        "cpanel-utilities",
+        "cpanel-email",
+        "cpanel-database",
+        "cpanel-subdomain",
+        "cpanel-disk-quota",
+        "laravel-cpanel",
+        "laravel-cpanel-library",
+        "laravel-cpanel-api",
+        "laravel-cpanel-management",
+        "laravel-cpanel-utilities"
+    ],    
     "homepage": "https://github.com/mhasnainjafri",
     "license": "MIT",
     "type": "library",
@@ -16,10 +28,7 @@
         }
     ],
     "require": {},
-    "require-dev": {
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.0"
-    },
+    "require-dev": {},
     "autoload": {
         "psr-4": {
             "MHasnainJafri\\Cpanel\\": "src"
