@@ -16,7 +16,9 @@
         "laravel-cpanel-api",
         "laravel-cpanel-management",
         "laravel-cpanel-utilities"
-    ],    
+    ],   
+    "minimum-stability": "stable",
+ 
     "homepage": "https://github.com/mhasnainjafri",
     "license": "MIT",
     "type": "library",
