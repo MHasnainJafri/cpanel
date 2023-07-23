@@ -1,8 +1,8 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/hasnain/cpanel.svg?style=flat-square)](https://packagist.org/packages/hasnain/cpanel)
-[![Total Downloads](https://img.shields.io/packagist/dt/hasnain/cpanel.svg?style=flat-square)](https://packagist.org/packages/hasnain/cpanel)
-![GitHub Actions](https://github.com/hasnain/cpanel/actions/workflows/main.yml/badge.svg)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/MHasnainJafri/cpanel.svg?style=flat-square)](https://packagist.org/packages/mhasnainjafri/cpanel)
+[![Total Downloads](https://img.shields.io/packagist/dt/MHasnainJafri/cpanel.svg?style=flat-square)](https://packagist.org/packages/mhasnainjafri/cpanel)
+![GitHub Actions](https://github.com/MHasnainJafri/cpanel/actions/workflows/main.yml/badge.svg)
 
 # Laravel CPanel Library
 
@@ -68,7 +68,7 @@ This function allows you to call the cPanel UAPI with the specified module, func
 
 ```php
 
-$result = $cpanel->deleteDatabaseUser('nbspakistan_testinguser');
+$result = $cpanel->deleteDatabaseUser('dbusername');
 
 ```
 
@@ -78,7 +78,7 @@ This function deletes the specified database user.
 
 ```php
 
-$result = $cpanel->deleteDatabase('nbspakistan_testingDB');
+$result = $cpanel->deleteDatabase('databasename');
 
 ```
 
@@ -88,7 +88,7 @@ This function deletes the specified database.
 
 ```php
 
-$result = $cpanel->setAllPrivilegesOnDatabase('nbspakistan_testinguser', 'nbspakistan_testingDB');
+$result = $cpanel->setAllPrivilegesOnDatabase('dbusername', 'dbname');
 
 ```
 
@@ -98,7 +98,7 @@ This function grants all privileges on the specified database to the specified u
 
 ```php
 
-$result = $cpanel->createDatabaseUser('nbspakistan_testinguser', 'v7b9O8B!46tp');
+$result = $cpanel->createDatabaseUser('dbuser', 'password');
 
 ```
 
@@ -118,7 +118,7 @@ This function returns a list of all databases.
 
 ```php
 
-$result = $cpanel->createDatabase('nbspakistan_testingDB');
+$result = $cpanel->createDatabase('DBname');
 
 ```
 
@@ -138,7 +138,7 @@ This function allows you to edit the quota of a mailbox associated with the spec
 
 ```php
 
-$result = $cpanel->deletePopEmailAccount('testingAccount@nbspakistan.org');
+$result = $cpanel->deletePopEmailAccount('mail');
 
 ```
 
@@ -148,7 +148,7 @@ This function deletes the specified POP email account.
 
 ```php
 
-$result = $cpanel->dispatchClientSettings('testingAccount@nbspakistan.org', 'account');
+$result = $cpanel->dispatchClientSettings('mail', 'account');
 
 ```
 
@@ -168,7 +168,7 @@ This function returns the count of POP email accounts.
 
 ```php
 
-$result = $cpanel->createPopEmailAccount('testingAccount@nbspakistan.org', 'v7b9O8B!46tp');
+$result = $cpanel->createPopEmailAccount('mailorg', 'password');
 
 ```
 
@@ -198,7 +198,7 @@ This function returns the disk quota information for cPanel.
 
 ```php
 
-$result = $cpanel->createSubDomain('testingSubDomain', 'nbspakistan.org', '/home/nbspakistan/public_html/testingSubDomain');
+$result = $cpanel->createSubDomain('subdomain', 'domain', 'path');
 
 ```
 
