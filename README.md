@@ -1,8 +1,13 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/MHasnainJafri/cpanel.svg?style=flat-square)](https://packagist.org/packages/mhasnainjafri/cpanel)
-[![Total Downloads](https://img.shields.io/packagist/dt/MHasnainJafri/cpanel.svg?style=flat-square)](https://packagist.org/packages/mhasnainjafri/cpanel)
-![GitHub Actions](https://github.com/MHasnainJafri/cpanel/actions/workflows/main.yml/badge.svg)
+[![Build Status](https://img.shields.io/travis/MHasnainJafri/cpanel/master.svg)](https://travis-ci.org/MHasnainJafri/cpanel)
+[![Code Coverage](https://img.shields.io/codecov/c/github/MHasnainJafri/cpanel.svg)](https://codecov.io/gh/MHasnainJafri/cpanel)
+[![License](https://img.shields.io/github/license/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/blob/master/LICENSE)
+[![Latest Release](https://img.shields.io/github/release/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/releases)
+[![Open Issues](https://img.shields.io/github/issues/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/issues)
+[![Stars](https://img.shields.io/github/stars/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/stargazers)
+[![Forks](https://img.shields.io/github/forks/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/network/members)
+
 
 # Laravel CPanel Library
 
