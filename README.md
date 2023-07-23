@@ -1,223 +1,187 @@
-# Very short description of the package
-
-[![Build Status](https://img.shields.io/travis/MHasnainJafri/cpanel/master.svg)](https://travis-ci.org/MHasnainJafri/cpanel)
-[![Code Coverage](https://img.shields.io/codecov/c/github/MHasnainJafri/cpanel.svg)](https://codecov.io/gh/MHasnainJafri/cpanel)
 [![License](https://img.shields.io/github/license/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/blob/master/LICENSE)
 [![Latest Release](https://img.shields.io/github/release/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/releases)
 [![Open Issues](https://img.shields.io/github/issues/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/issues)
 [![Stars](https://img.shields.io/github/stars/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/stargazers)
 [![Forks](https://img.shields.io/github/forks/MHasnainJafri/cpanel.svg)](https://github.com/MHasnainJafri/cpanel/network/members)
 
+Library Name: Laravel CPanel API
 
-# Laravel CPanel Library
+This library provides a convenient way to interact with the cPanel API using Laravel. It allows you to perform various cPanel functions such as creating subdomains, managing databases, handling email accounts, and managing disk usage.
 
-This Laravel library provides functions to interact with cPanel and perform various tasks related to managing emails, databases, database users, disk quota, and subdomains.
+Installation
 
-## Installation
-
-To use this library in your Laravel project, follow these steps:
-
-1. Install the package via Composer:
-
-```bash
-
-composer require your-package-name
+To use this library in your Laravel project, you can install it via Composer. Run the following command in your terminal:
 
 ```
 
-2. Add the service provider to your `config/app.php` file:
+composer require mhasnainjafri/cpanel
 
+```
+
+### Usage
+
+To get started, you need to create a new instance of the Cpanel class. There are two ways to initialize the class:
+
+1. Without any parameters:
 ```php
-
-'providers' => [
-
-    // ...
-
-    Your\Package\ServiceProvider::class,
-
-],
-
-```
-
-3. Publish the configuration file:
-
-```bash
-
-php artisan vendor:publish --provider="Your\Package\ServiceProvider"
-
-```
-
-4. Configure the necessary settings in the published configuration file.
-
-## Usage
-
-To get started, create an instance of the Cpanel class:
-
-```php
-
 $cpanel = new Cpanel();
-
 ```
+2. With parameters (if not defined in `.env` file):
+```php
+$cpanel = new Cpanel($cpanel_domain, $cpanel_api_token, $cpanel_username, 'https', 2083);
+```
+Alternatively, you can set the cPanel credentials in the `.env` file:
+```
+CPANEL_DOMAIN=domain e.g : xyz.com
+CPANEL_PORT=cpanel port (mostly is) 2083
+CPANEL_API_TOKEN= Cpanel api token (To get api token view step 3)
+CPANEL_USERNAME= Cpanel username
+```
+3. ### Steps to get Cpanel Api 
 
-### Call UAPI
+- search api in cpanel search bar
+- click on ```Manage api token```
+![step 1](1.png)
+- Give  token a name and click on create 
+![step 2](2.png)
+- Copy the token you get
+
+
+### Subdomain Functions
+
+To create a subdomain, use the `createSubDomain()` method:
 
 ```php
 
-$result = $cpanel->callUAPI($Module, $function, $parameters_array = array());
+$cpanel->createSubDomain('Sub domain e.g: web', 'domain e.g: xyz.com', 'Path where subdomain points e.g: /home/domain/public_html/subdomain');
 
 ```
 
-This function allows you to call the cPanel UAPI with the specified module, function, and parameters.
+### Database Functions
 
-### Delete Database User
+To list all databases, use the `listDatabases()` method:
 
 ```php
 
-$result = $cpanel->deleteDatabaseUser('dbusername');
+$cpanel->listDatabases();
 
 ```
 
-This function deletes the specified database user.
-
-### Delete Database
+To create a new database, use the `createDatabase()` method:
 
 ```php
 
-$result = $cpanel->deleteDatabase('databasename');
+$cpanel->createDatabase('Database Name');
 
 ```
 
-This function deletes the specified database.
-
-### Set All Privileges On Database
+To delete a database, use the `deleteDatabase()` method:
 
 ```php
 
-$result = $cpanel->setAllPrivilegesOnDatabase('dbusername', 'dbname');
+$cpanel->deleteDatabase('Database Name');
 
 ```
 
-This function grants all privileges on the specified database to the specified user.
-
-### Create Database User
+To create a database user, use the `createDatabaseUser()` method:
 
 ```php
 
-$result = $cpanel->createDatabaseUser('dbuser', 'password');
+$cpanel->createDatabaseUser('Database username', 'password');
 
 ```
 
-This function creates a new database user with the specified username and password.
-
-### List Databases
+To delete a database user, use the `deleteDatabaseUser()` method:
 
 ```php
 
-$result = $cpanel->listDatabases();
+$cpanel->deleteDatabaseUser('Database username');
 
 ```
 
-This function returns a list of all databases.
-
-### Create Database
+To set all privileges on a database for a user, use the `setAllPrivilegesOnDatabase()` method:
 
 ```php
 
-$result = $cpanel->createDatabase('DBname');
+$cpanel->setAllPrivilegesOnDatabase('Database username', 'Database Name');
 
 ```
 
-This function creates a new database with the specified name.
+### Mail Functions
 
-### Edit Mailbox Quota
+To create a POP email account, use the `createPopEmailAccount()` method:
 
 ```php
 
-$result = $cpanel->editMailboxQuota($email, $domain, $quota);
+$cpanel->createPopEmailAccount('mail@domain.com', 'password');
 
 ```
 
-This function allows you to edit the quota of a mailbox associated with the specified email and domain.
-
-### Delete POP Email Account
+To delete a POP email account, use the `deletePopEmailAccount()` method:
 
 ```php
 
-$result = $cpanel->deletePopEmailAccount('mail');
+$cpanel->deletePopEmailAccount('mail@domain.com');
 
 ```
 
-This function deletes the specified POP email account.
-
-### Dispatch Client Settings
+To edit the mailbox quota for an email account, use the `editMailboxQuota()` method:
 
 ```php
 
-$result = $cpanel->dispatchClientSettings('mail', 'account');
+$cpanel->editMailboxQuota($email, $domain, $quota);
 
 ```
 
-This function dispatches the client settings for the specified account.
-
-### Get POP Email Count
+To dispatch client settings for an email account, use the `dispatchClientSettings()` method:
 
 ```php
 
-$result = $cpanel->getPopEmailCount();
+$cpanel->dispatchClientSettings('mail@domain.com', 'account');
 
 ```
 
-This function returns the count of POP email accounts.
-
-### Create POP Email Account
+To get the POP email count, use the `getPopEmailCount()` method:
 
 ```php
 
-$result = $cpanel->createPopEmailAccount('mailorg', 'password');
+$cpanel->getPopEmailCount();
 
 ```
 
-This function creates a new POP email account with the specified email and password.
+### cPanel Disk Management
 
-### Get cPanel Stats Bar Stats
+To get cPanel statistics bar stats for bandwidth usage or disk usage, use the `getCpanelStatsBarStats()` method:
 
 ```php
 
-$result = $cpanel->getCpanelStatsBarStats('bandwidthusage|diskusage');
+$cpanel->getCpanelStatsBarStats('bandwidthusage|diskusage');
 
 ```
 
-This function returns the statistics for the cPanel stats bar, such as bandwidth usage and disk usage.
-
-### Get cPanel Disk Quota Info
+To get cPanel disk quota information, use the `getCpanelDiskQuotaInfo()` method:
 
 ```php
 
-$result = $cpanel->getCpanelDiskQuotaInfo();
+$cpanel->getCpanelDiskQuotaInfo();
 
 ```
 
-This function returns the disk quota information for cPanel.
+### Other API Functions
 
-### Create Subdomain
+To call any other cPanel API function, use the `callUAPI()` method:
 
 ```php
 
-$result = $cpanel->createSubDomain('subdomain', 'domain', 'path');
+$cpanel->callUAPI($Module, $function, $parameters_array = array());
 
 ```
 
-This function creates a new subdomain with the specified name, domain, and document root.
+Replace `$Module` with the desired module, `$function` with the function name, and `$parameters_array` with any additional parameters required by the API function.
 
-Feel free to use these functions to interact with cPanel and perform various management tasks.
+That's it! You can now leverage the power of the Laravel CPanel API library to interact with the cPanel API seamlessly in your Laravel applications.
 
 
-
-## Usage
-
-```php
-// Usage description here
-```
 
 ### Testing
 
@@ -239,8 +203,8 @@ If you discover any security related issues, please email mhasnainjafri0099@gmai
 
 ## Credits
 
--   [Muhammad Hasnain](https://github.com/hasnain)
--   [All Contributors](../../contributors)
+-   [Muhammad Hasnain](https://github.com/MHasnainJafri)
+
 
 ## License
 
