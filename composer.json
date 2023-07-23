@@ -5,7 +5,7 @@
         "hasnain",
         "cpanel"
     ],
-    "homepage": "https://github.com/hasnain/cpanel",
+    "homepage": "https://github.com/mhasnainjafri",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -15,9 +15,7 @@
             "role": "Developer"
         }
     ],
-    "require": {
-        "php": "^7.4|^8.0"
-    },
+    "require": {},
     "require-dev": {
         "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.0"
