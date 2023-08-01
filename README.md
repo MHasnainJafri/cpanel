@@ -202,6 +202,7 @@ If you discover any security related issues, please email mhasnainjafri0099@gmai
 ## Credits
 
 -   [Muhammad Hasnain](https://github.com/MHasnainJafri)
+-   [Muhammad Anas](https://github.com/MHasnainJafri)
 
 
 ## License
